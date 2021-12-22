@@ -1,0 +1,17 @@
+{
+    "name": "Eindopracht Pokédex",
+    "short_name": "Pokedex",
+    "icons": [
+        {
+            "src": "/pokedex-logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/pokedex-logo.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "display": "standalone"
+}

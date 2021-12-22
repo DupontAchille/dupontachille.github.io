@@ -1,0 +1,819 @@
+/*------------------------------------*\
+#FONTS
+\*------------------------------------*/
+
+/*------------------------------------*\
+#Variables
+\*------------------------------------*/
+
+:root {
+  /* colors */
+  --color-white: #ffffff;
+  --color-black: #222224;
+  --color-red: #ee1515;
+  --color-dark-red: #f00000;
+  --color-blue: #3b4cca;
+  --color-yellow: #ffde00;
+  --color-gold: #b3a125;
+
+  --global-color-neutral-xx-light: #d7dae2;
+  --global-color-neutral-x-light: #bcbccb;
+  --global-color-neutral-light: #a5a4bf;
+  --global-color-neutral: #808495;
+  --global-color-neutral-dark: #4d4f5c;
+  --global-color-neutral-x-dark: #43425d;
+  --global-color-neutral-xx-dark: #3b3b53;
+  /* opacity */
+
+  /* transitions */
+}
+
+/*------------------------------------*\
+#GENERIC
+\*------------------------------------*/
+
+/*
+    Generic: Page
+    ---
+    Global page styles + universal box-sizing:
+*/
+
+main {
+  margin: 0 auto;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  font-feature-settings: "zero" 1;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(/img/container_bg.png) repeat center center fixed;
+
+  background-color: var(--global-color-neutral-xx-light);
+  color: var(--color-back);
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*------------------------------------*\
+#Elements
+\*------------------------------------*/
+
+/*
+Elements: Images
+---
+Default markup for images to make them responsive
+*/
+
+img {
+  max-width: 100%;
+}
+
+/*
+    Elements: typography
+    ---
+    Default markup for typographic elements
+*/
+
+h2,
+h3 {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+  font-weight: 500;
+  margin: 0 0 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin: 0 0 1.5rem;
+}
+
+h3 {
+  font-size: 1.625rem;
+  line-height: 2rem;
+  margin: 0 0 1.5rem;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  margin: 0 0 1.5rem;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0 0 1.5rem;
+}
+
+blockquote * {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+figcaption {
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-top: 0.5rem;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: LightGrey;
+  margin: 0 0 1.5rem;
+}
+
+a {
+  outline-offset: 2px;
+}
+
+a:visited,
+a:active {
+}
+
+a:hover,
+a:focus {
+}
+
+label,
+input {
+  display: block;
+}
+
+select {
+  width: 100%;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+/*------------------------------------*\
+#OBJECTS
+\*------------------------------------*/
+
+/*------------------------------------*\
+#COMPONENTS
+\*------------------------------------*/
+
+.preloader {
+  /*
+  Making the preloader floating over other elements.
+  The preloader is visible by default. 
+  */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background: #f4f5f8 url("/img/gif/pokeballoadingscreen.gif") no-repeat center;
+}
+
+.c-app {
+  opacity: 0;
+  transition: opacity 500ms ease-out;
+}
+
+.c-app.loaded {
+  opacity: 1;
+}
+
+.c-btn__topscroll {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 1;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: var(--color-black);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -5px;
+  cursor: pointer;
+}
+
+.up:hover polyline,
+.up:focus polyline {
+  stroke-width: 15;
+}
+
+.up:active polyline {
+  stroke-width: 15;
+  transition: all 100ms ease-in-out;
+}
+
+/* Nav Component */
+
+.c-app__nav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.c-app__nav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.active {
+  background-color: var(--color-dark-red);
+  color: white;
+}
+
+.c-app__nav .icon {
+  display: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  columns: 2;
+}
+
+.dropdown-content a {
+  float: none;
+  text-decoration: none;
+  display: flex;
+  width: 8rem;
+  border-radius: 10px;
+  margin: 0 0.5rem 0.2rem 0.5rem;
+  color: var(--color-black);
+  border: 2px solid rgba(0, 0, 0, 0.05);
+}
+@media screen and (max-width: 600px) {
+  .dropdown-content a {
+    text-align: center !important;
+    width: auto;
+    padding: 5px;
+  }
+  .dropdown-content a p {
+    padding: 0;
+  }
+}
+.dropdown-content img {
+  margin-right: auto;
+  position: relative;
+}
+
+.c-app__nav a:hover,
+.dropdown:hover .dropbtn {
+  color: var(--color-white);
+  background-color: var(--color-red);
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.c-app__nav input[type="text"] {
+  float: right;
+  padding: 0.3rem;
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+  border: none;
+  font-size: 1rem;
+  width: 20%;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .c-app__nav a:not(:first-child),
+  .dropdown .dropbtn {
+    display: none;
+  }
+  .c-app__nav a.icon {
+    float: right;
+    display: block;
+  }
+  .c-app__nav input:not(:first-child) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .c-app__nav.responsive {
+    position: relative;
+  }
+  .c-app__nav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .c-app__nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .c-app__nav.responsive .dropdown {
+    float: none;
+  }
+  .c-app__nav.responsive .dropdown-content {
+    position: relative;
+  }
+  .c-app__nav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+  .c-app__nav.responsive input {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 0.9rem;
+  }
+}
+/* Pokedex container + cards */
+
+.c-app__main h1 {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.c-app__pokedex {
+  display: grid;
+  margin: 0 12.5rem 0 12.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-gap: 1.25rem;
+  padding-inline-start: 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .c-app__pokedex {
+    margin: auto 1.25rem auto 1.25rem;
+  }
+
+  .card {
+    width: 100% !important;
+    margin: auto;
+  }
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding: 1.875rem 1.25rem;
+  box-shadow: 0 1.25rem 1.875rem rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  max-width: 23rem;
+  margin: auto;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: all ease 500ms;
+}
+.card img {
+  display: block;
+  width: 11.25rem;
+  max-height: 12.5rem;
+  position: relative;
+  margin: 1.25rem auto;
+}
+.poke-name {
+  text-align: center;
+  font-weight: 600;
+}
+.types {
+  display: flex;
+  justify-content: space-around;
+  margin: 1.25rem 0 2.5rem 0;
+}
+.types span {
+  font-size: 0.75rem;
+  letter-spacing: 0.4px;
+  font-weight: 600;
+}
+.types span {
+  padding: 0.3rem 1.25rem;
+  border-radius: 1.25rem;
+  color: black;
+}
+
+/* Component Modal */
+
+/* The Modal (background) */
+.c-app__modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 3rem 0 3rem 0;
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.c-modal__content {
+  background-color: var(--global-color-neutral-xx-light);
+  margin: auto;
+  padding: 3rem;
+  border: 1px solid #888;
+  width: 60%;
+  height: 100%;
+  /* Grid layout */
+  display: grid;
+  grid-gap: 0.625rem;
+  grid-template-columns: auto;
+  position: relative;
+  border-radius: 30px;
+}
+
+.item {
+  background-color: var(--color-white);
+  border-radius: 10px;
+}
+@media screen and (min-width: 1224px) {
+  .item:nth-of-type(3) {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+  .item:nth-of-type(2) {
+    grid-row-start: span 2;
+  }
+  .item:nth-of-type(1) {
+    grid-column-start: span 2;
+  }
+}
+
+.c-modal__header {
+  display: flex;
+}
+
+.c-modal__header h2 {
+  margin: auto;
+}
+
+.c-modal__img {
+  display: flex;
+}
+
+.c-modal__img img {
+  margin: auto;
+  display: block;
+}
+
+/* Responsive */
+/* Table screen size */
+@media screen and (max-width: 1224px) {
+  .c-modal__content {
+    width: 80%;
+    height: 100%;
+    grid-template-rows: 3rem 9.375rem 12.5rem 12.5rem;
+  }
+
+  .c-modal__img img {
+    max-height: 80%;
+    width: auto;
+  }
+
+  .c-modal__text-title {
+    font-size: 1rem !important;
+  }
+
+  .c-modal__text-subtitle {
+    font-size: 0.75rem !important;
+  }
+}
+/* Phone screen size */
+@media screen and (max-width: 550px) {
+  .c-modal__content {
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px 0px;
+    grid-auto-flow: column;
+    height: 90%;
+    padding: 3.125rem 0.625rem 0.625rem 0.625rem;
+  }
+  /* .c-modal__img img {
+    max-height: 80%;
+    width: auto;
+  } */
+  .c-modal__img {
+    display: none;
+  }
+  #myChart {
+    max-width: 12.5rem !important;
+  }
+}
+
+.c-modal__text li {
+  list-style: none;
+}
+.c-modal__text-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+@media screen and (min-width: 1224px) {
+  .c-modal__text-subtitle {
+    padding-bottom: 10px;
+  }
+}
+
+.c-modal__text-type {
+  float: left;
+  margin-right: -100%;
+  width: 32.29%;
+  border-radius: 5px;
+  margin: 0.5em 0 0 0;
+  padding: 0;
+  text-align: center;
+}
+.c-modal__text img {
+  width: 6.25rem;
+  height: auto;
+}
+
+/* The Close Button */
+.c-modal__close {
+  position: absolute;
+  color: #aaaaaa;
+  right: 0;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0.625rem 1.875rem 1.25rem 1.875rem;
+}
+
+.c-modal__close:hover,
+.c-modal__close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Component Modal Pokemon CARD */
+
+#myChart {
+  max-width: 25rem;
+  max-height: 100%;
+  margin: auto;
+}
+
+/* @media screen and (max-width: 1400px) {
+  #myChart {
+    max-width: 100%;
+    height: auto;
+  }
+} */
+
+/*------------------------------------*\
+#UTILITIES
+\*------------------------------------*/
+
+/* All backgrounds for different type of pokemons */
+.u-background-color-dragon {
+  background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+  background-color: #53a4cf;
+  color: #fff;
+}
+.u-background-color-normal {
+  background: linear-gradient(180deg, #a4acaf 50%, #a4acaf 50%);
+  background-color: #a4acaf;
+  color: #212121;
+}
+.u-background-color-bug {
+  background: linear-gradient(180deg, #729f3f 50%, #729f3f 50%);
+  background-color: #729f3f;
+  color: #fff;
+}
+.u-background-color-fairy {
+  background: linear-gradient(180deg, #fdb9e9 50%, #fdb9e9 50%);
+  background-color: #fdb9e9;
+  color: #212121;
+}
+.u-background-color-fire {
+  background: linear-gradient(180deg, #fd7d24 50%, #fd7d24 50%);
+  background-color: #fd7d24;
+  color: #fff;
+}
+.u-background-color-ghost {
+  background: linear-gradient(180deg, #7b62a3 50%, #7b62a3 50%);
+  background-color: #7b62a3;
+  color: #fff;
+}
+.u-background-color-ground {
+  background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+  background-color: #f7de3f;
+  color: #212121;
+}
+.u-background-color-psychic {
+  background: linear-gradient(180deg, #f366b9 50%, #f366b9 50%);
+  background-color: #f366b9;
+  color: #fff;
+}
+.u-background-color-steel {
+  background: linear-gradient(180deg, #9eb7b8 50%, #9eb7b8 50%);
+  background-color: #9eb7b8;
+  color: #212121;
+}
+.u-background-color-dark {
+  background: linear-gradient(180deg, #707070 50%, #707070 50%);
+  background-color: #707070;
+  color: #fff;
+}
+.u-background-color-electric {
+  background: linear-gradient(180deg, #eed535 50%, #eed535 50%);
+  background-color: #eed535;
+  color: #212121;
+}
+.u-background-color-fighting {
+  background: linear-gradient(180deg, #d56723 50%, #d56723 50%);
+  background-color: #d56723;
+  color: #fff;
+}
+.u-background-color-flying {
+  background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+  background-color: #3dc7ef;
+  color: #212121;
+}
+.u-background-color-grass {
+  background: linear-gradient(180deg, #9bcc50 50%, #9bcc50 50%);
+  background-color: #9bcc50;
+  color: #212121;
+}
+.u-background-color-ice {
+  background: linear-gradient(180deg, #51c4e7 50%, #51c4e7 50%);
+  background-color: #51c4e7;
+  color: #212121;
+}
+.u-background-color-poison {
+  background: linear-gradient(180deg, #b97fc9 50%, #b97fc9 50%);
+  background-color: #b97fc9;
+  color: #fff;
+}
+.u-background-color-rock {
+  background: linear-gradient(180deg, #a38c21 50%, #a38c21 50%);
+  background-color: #a38c21;
+  color: #fff;
+}
+.u-background-color-water {
+  background: linear-gradient(180deg, #4592c4 50%, #4592c4 50%);
+  background-color: #4592c4;
+  color: #fff;
+}
+
+/* Button */
+
+/*------------------------------------*\
+#STATES
+\*------------------------------------*/
+
+/*------------------------------------*\
+#MEDIA
+\*------------------------------------*/
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    /* Black prints faster:
+        http://www.sanbeiji.com/archives/953 */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+  /*
+    * Don't show links that are fragment identifiers,
+    * or use the `javascript:` pseudo protocol
+    */
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+  pre {
+    white-space: pre-wrap !important;
+  }
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+  /*
+    * Printing Tables:
+    * http://css-discuss.incutio.com/wiki/Printing_Tables
+    */
+  thead {
+    display: table-header-group;
+  }
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
